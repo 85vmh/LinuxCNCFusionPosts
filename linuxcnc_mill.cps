@@ -1340,7 +1340,9 @@ function onCommand(command) {
 
 function onSectionEnd() {
   if (currentSection.isMultiAxis()) {
-   writeBlock(gMotionModal.format(49));
+   //This will cause the machine to crash into the workpiece if there's a 
+   //subsequent operation with the same tool. 
+   //writeBlock(gMotionModal.format(49));
   }
   writeBlock(gPlaneModal.format(17));
   if (!isLastSection() && (getNextSection().getTool().coolant != tool.coolant)) {
